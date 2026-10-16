@@ -3,22 +3,22 @@ import type { SzobakTipus } from "../adatok"
 interface KartyaProps {
     elem: SzobakTipus;
     index: number;
-    kivalaszt: ( index: number) => void;
+    kartyakivalaszt: ( index: number) => void;
 }
 
-function Kartya({ elem, index, kivalaszt }: KartyaProps) {
+function Kartya({ elem, index, kartyakivalaszt }: KartyaProps) {
     return (
         <div className="kartya">
             <div className="kartyaFejlec">
-                <p>{elem.szoba_nev}</p>
-                <p>{elem.szobatipus}</p>
+                <span><p>{elem.szoba_nev}</p></span>
+                <span><p>{elem.szobatipus}</p></span>
             </div>
-            <p>{elem.id}</p>
-            <p>{elem.szobatipus}</p>
-            <p>{elem.emelet}</p>
-            <p>{elem.ferohely}</p>
-            <p>{elem.foglalt_helyek}</p>
-            <button className="foglalasGomb" onClick={() => kivalaszt(index)}></button>
+            <span>ID <p>{elem.id}</p></span>
+            <span>Szobatípus <p>{elem.szobatipus}</p></span>
+            <span>Emelet <p>{elem.emelet}</p></span>
+            <span>Férőhely <p>{elem.ferohely}</p></span>
+            <span>Foglalt helyek <p>{elem.foglalt_helyek}</p></span>
+            <button className="foglalasGomb" onClick={() => kartyakivalaszt(index)}></button>
         </div>
     )
 }
