@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import { TANULOSZOBAK } from './adatok';
 
 function App() {
-  
+  const[i, setI] = useState(0);
+  function kivalaszt(index: number) {
+    setI(index);
+  }
 
   return (
     <>
@@ -12,11 +16,10 @@ function App() {
           <p>Találd meg számodra a megfelelő tanulóhelyet!</p>
         </header>
         <article>
-          <Kartyak />
+          <Kartyak lista={TANULOSZOBAK} kivalaszt/>
         </article>
       </main>
     </>
   )
 }
-
 export default App
