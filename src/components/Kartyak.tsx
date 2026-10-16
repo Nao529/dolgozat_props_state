@@ -1,5 +1,6 @@
 import type { SzobakTipus } from "../adatok"
 import Kartya from "./Kartya";
+import './Kartyak.css'
 
 interface KartyakProps {
     lista: SzobakTipus[];

@@ -9,6 +9,10 @@ function App() {
     setI(index);
   }
 
+  function foglalas() {
+    
+  }
+
   return (
     <>
       <main>
@@ -17,7 +21,6 @@ function App() {
           <p>Találd meg számodra a megfelelő tanulóhelyet!</p>
         </header>
         <article>
-          <p>Szobatípus: </p>
           <Kartyak lista={TANULOSZOBAK} kivalaszt={kartyaKivalaszt}/>
         </article>
         <footer>Nao</footer>
