@@ -10,7 +10,7 @@ export interface SzobakTipus {
     foglalt_helyek: number;
 }
 
-export const TANULOSZOBAK = [
+export const TANULOSZOBAK : SzobakTipus[] = [
     {
         id: 1,
         szoba_nev: "Csendes kuckó",

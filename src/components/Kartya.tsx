@@ -4,10 +4,10 @@ import './Kartya.css'
 interface KartyaProps {
     elem: SzobakTipus;
     index: number;
-    kartyakivalaszt: ( index: number) => void;
+    foglalasHozzaad: ( index: number) => void;
 }
 
-function Kartya({ elem, index, kartyakivalaszt }: KartyaProps) {
+function Kartya({ elem, index, foglalasHozzaad }: KartyaProps) {
     return (
         <div className="kartya">
             <div className="kartyaFejlec">
@@ -19,7 +19,7 @@ function Kartya({ elem, index, kartyakivalaszt }: KartyaProps) {
             <span><p>Emelet {elem.emelet}</p></span>
             <span><p>Férőhely {elem.ferohely}</p></span>
             <span><p>Foglalt helyek {elem.foglalt_helyek}</p></span>
-            <button className="foglalasGomb" onClick={() => kartyakivalaszt(index)}>Helyet foglalok</button>
+            <button className="foglalasGomb" onClick={() => foglalasHozzaad(index)}>Helyet foglalok</button>
         </div>
     )
 }

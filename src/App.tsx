@@ -1,16 +1,23 @@
 import { useState } from 'react'
 import './App.css'
-import { TANULOSZOBAK } from './adatok';
+import { TANULOSZOBAK, type SzobakTipus } from './adatok';
 import Kartyak from './components/Kartyak';
 
 function App() {
-  const[i, setI] = useState(0);
-  function kartyaKivalaszt(index: number) {
-    setI(index);
-  }
-
-  function foglalas() {
-    
+  const[lista, setLista] = useState<SzobakTipus[]>(TANULOSZOBAK)
+  function foglalasHozzaad(index: number) {
+    console.log(lista[index].id);
+    //új lista, hogy ne az eredetit módosítsuk
+    const ujLista: SzobakTipus[] = [...lista] //eredeti lista másolata
+    //csak akkor foglalhatunk helyet, ha elég a férőhely
+    //ezért megnézzük az új listában az indexedik helyen lévő elemnek a férőhelyét
+    //aztán megnézzük a foglalt helyeket az új listában
+    //és ellenőrizzük, hogy a foglalt helyek kisebb-e mint a férőhelyek
+    //ha kisebb, hozzáadunk egyet a foglalt helyekhez
+    if (ujLista[index].ferohely > ujLista[index].foglalt_helyek) {
+      ujLista[index].foglalt_helyek += 1;
+    }
+    setLista(ujLista)
   }
 
   return (
@@ -21,7 +28,7 @@ function App() {
           <p>Találd meg számodra a megfelelő tanulóhelyet!</p>
         </header>
         <article>
-          <Kartyak lista={TANULOSZOBAK} kivalaszt={kartyaKivalaszt}/>
+          <Kartyak lista={lista} foglalasHozzaad={foglalasHozzaad}/>
         </article>
         <footer>Nao</footer>
       </main>

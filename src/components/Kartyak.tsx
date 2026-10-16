@@ -4,14 +4,14 @@ import './Kartyak.css'
 
 interface KartyakProps {
     lista: SzobakTipus[];
-    kartyakivalaszt: (index: number) => void;
+    foglalasHozzaad: (index: number) => void;
 }
 
-function Kartyak({lista, kartyakivalaszt}: KartyakProps) {
+function Kartyak({lista, foglalasHozzaad}: KartyakProps) {
     return (
         <div className="kartyak">
             {lista.map((e,i) => (
-                <Kartya  elem={e} index={i} kartyakivalaszt={kartyakivalaszt} key={e.id}/>
+                <Kartya  elem={e} index={i} foglalasHozzaad={foglalasHozzaad} key={e.id}/>
             ))}
         </div>
     )
